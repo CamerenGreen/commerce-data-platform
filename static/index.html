@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Commerce Data Platform polyglot persistence dashboard" />
+    <title>Commerce Data Platform</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand"><span class="pulse"></span> Commerce Data Platform</div>
+      <nav><a href="/docs">API docs ↗</a></nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">POLYGLOT PERSISTENCE · LIVE OVERVIEW</p>
+        <h1>Signals become <em>decisions.</em></h1>
+        <p class="lede">Transactional truth from PostgreSQL. Behavioral context from MongoDB. Fast answers from Redis.</p>
+        <div class="status" id="status"><span></span> Connecting to data services…</div>
+      </section>
+
+      <section class="metrics" aria-label="Conversion metrics">
+        <article><p>Product views</p><strong id="views">—</strong><small>MongoDB events</small></article>
+        <article><p>Add to carts</p><strong id="carts">—</strong><small id="view-rate">—% of views</small></article>
+        <article><p>Purchases</p><strong id="purchases">—</strong><small id="purchase-rate">—% of carts</small></article>
+        <article class="accent"><p>Revenue</p><strong id="revenue">—</strong><small>PostgreSQL ledger</small></article>
+      </section>
+
+      <section class="grid">
+        <article class="panel chart-panel">
+          <div class="panel-title"><div><p>REVENUE TREND</p><h2>Last 30 days</h2></div><span id="cache">CACHE —</span></div>
+          <div id="chart" class="chart"><p class="empty">Waiting for revenue data…</p></div>
+        </article>
+        <article class="panel">
+          <div class="panel-title"><div><p>LEADERBOARD</p><h2>Top products</h2></div></div>
+          <ol id="products" class="products"><li class="empty">Loading…</li></ol>
+        </article>
+      </section>
+
+      <section class="architecture">
+        <p class="eyebrow">SYSTEM MAP</p>
+        <div class="architecture-row">
+          <div><b>PostgreSQL</b><span>ACID orders & inventory</span></div><i>+</i>
+          <div><b>MongoDB</b><span>Flexible event documents</span></div><i>+</i>
+          <div><b>Redis</b><span>TTL analytics cache</span></div><i>→</i>
+          <div class="output"><b>FastAPI</b><span>Unified query layer</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer><span>Commerce Data Platform</span><span id="updated"></span></footer>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
